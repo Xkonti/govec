@@ -48,7 +48,10 @@ go get github.com/xkonti/govec
 | `Inv`           | ✔️ | ✔️ | Computes the multiplicative inverse of each component in the vector.                               |
 | `Len`           | ✔️ | ✔️ | Calculates the length of the vector. Returns `float64` for integer vectors.                        |
 | `LenSqr`        | ✔️ | ✔️ | Calculates the squared length of the vector. Returns `float64` for integer vectors.                |
-| `Mod`           | ✔️ | ✔️ | Computes the modulus of each component in the vector.                                              |
+| `Max`           | ✔️ | ✔️ | Returns the maximum component values from two vectors.                                             |
+| `Min`           | ✔️ | ✔️ | Returns the minimum component values from two vectors.                                             |
+| `Mod`           | ✔️ | ✔️ | Computes the modulus of each component in the vector against another vector components.            |
+| `ModScalar`     | ✔️ | ✔️ | Computes the modulus of each component in the vector against a single scalar.                      |
 | `Mul`           | ✔️ | ✔️ | Performs vector multiplication.                                                                    |
 | `MulScalar`     | ✔️ | ✔️ | Multiplies each component of the vector by a scalar.                                               |
 | `Neg`           | ✔️ | ✔️ | Negates each component of the vector.                                                              |
@@ -83,8 +86,6 @@ any of these implemented or if you'd like to propose a different operation.
 | `IsUnit`          |            | Checks if the vector is a unit vector.                      |
 | `IsZero`          | Yes (v1.0) | Checks if the vector is a zero vector.                      |
 | `Lerp`            | Yes (v1.0) | Linearly interpolates between two vectors.                  |
-| `Max`             | Yes (v1.0) | Returns the maximum component values from two vectors.      |
-| `Min`             | Yes (v1.0) | Returns the minimum component values from two vectors.      |
 | `Orthogonalize`   |            | Generates an orthogonal (or orthonormal) vector set.        |
 | `Project`         |            | Projects a 3D vector onto a plane.                          |
 | `Random`          | Yes (v1.0) | Generates a normal vector with random components.           |

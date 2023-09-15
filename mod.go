@@ -1,7 +1,5 @@
 package govec
 
-// Modulo for floating point types is using int64, so it might be a bit slower than necessary.
-
 // V2F
 
 func (v V2F[T]) Mod(v2 V2F[T]) V2F[T] {
