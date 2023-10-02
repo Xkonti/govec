@@ -31,3 +31,7 @@ func (v V3I[T]) ToV3I16() V3I[int16] {
 func (v V3I[T]) ToV3I8() V3I[int8] {
 	return V3I[int8]{X: int8(v.X), Y: int8(v.Y), Z: int8(v.Z)}
 }
+
+func (v V3I[T]) ToV3I() V3I[int] {
+	return V3I[int]{X: int(v.X), Y: int(v.Y), Z: int(v.Z)}
+}
