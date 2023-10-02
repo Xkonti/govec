@@ -30,3 +30,7 @@ func (v V2F[T]) ToV2I16() V2I[int16] {
 func (v V2F[T]) ToV2I8() V2I[int8] {
 	return V2I[int8]{X: int8(v.X), Y: int8(v.Y)}
 }
+
+func (v V2F[T]) ToV2I() V2I[int] {
+	return V2I[int]{X: int(v.X), Y: int(v.Y)}
+}
