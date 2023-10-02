@@ -1,9 +1,11 @@
 # GoVec
-A library providing vector operations for Go.
+A library providing vector operations for Go. It focuses on performance so that it can be used in games and other
+demanding applications.
 
-The library supports both 2D and 3D vectors in two formats:
-- Floating Point Vectors: `V2F[T]` and `V3F[T]`
-- Integer Vectors: `V2I[T]` and `V3I[T]`
+[![Go Reference](https://pkg.go.dev/badge/github.com/xkonti/govec.svg)](https://pkg.go.dev/github.com/xkonti/govec)
+[![Release](https://img.shields.io/github/v/release/xkonti/govec)](https://img.shields.io/github/v/release/xkonti/govec)
+[![License](https://img.shields.io/github/license/xkonti/govec)](https://img.shields.io/github/license/xkonti/govec)
+[![Go Report Card](https://goreportcard.com/badge/github.com/xkonti/govec)](https://goreportcard.com/report/github.com/xkonti/govec)
 
 ## Installation
 
