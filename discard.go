@@ -1,25 +1,31 @@
 package govec
 
-func (v V3F[T]) discardX() V2F[T] {
+// DiscardX returns a new V2F[T] with the X component omitted.
+func (v V3F[T]) DiscardX() V2F[T] {
 	return V2F[T]{X: v.Y, Y: v.Z}
 }
 
-func (v V3F[T]) discardY() V2F[T] {
+// DiscardY returns a new V2F[T] with the Y component omitted.
+func (v V3F[T]) DiscardY() V2F[T] {
 	return V2F[T]{X: v.X, Y: v.Z}
 }
 
-func (v V3F[T]) discardZ() V2F[T] {
+// DiscardZ returns a new V2F[T] with the Z component omitted.
+func (v V3F[T]) DiscardZ() V2F[T] {
 	return V2F[T]{X: v.X, Y: v.Y}
 }
 
-func (v V3I[T]) discardX() V2I[T] {
+// DiscardX returns a new V2I[T] with the X component omitted.
+func (v V3I[T]) DiscardX() V2I[T] {
 	return V2I[T]{X: v.Y, Y: v.Z}
 }
 
-func (v V3I[T]) discardY() V2I[T] {
+// DiscardY returns a new V2I[T] with the Y component omitted.
+func (v V3I[T]) DiscardY() V2I[T] {
 	return V2I[T]{X: v.X, Y: v.Z}
 }
 
-func (v V3I[T]) discardZ() V2I[T] {
+// DiscardZ returns a new V2I[T] with the Z component omitted.
+func (v V3I[T]) DiscardZ() V2I[T] {
 	return V2I[T]{X: v.X, Y: v.Y}
 }
