@@ -25,6 +25,7 @@ func (v *V2F[T]) AbsInPlace() {
 
 // V3F
 
+// Abs computes the absolute value of each component in the vector.
 func (v V3F[T]) Abs() V3F[T] {
 	absX := v.X
 	absY := v.Y
@@ -41,6 +42,7 @@ func (v V3F[T]) Abs() V3F[T] {
 	return V3F[T]{X: absX, Y: absY, Z: absZ}
 }
 
+// AbsInPlace computes the absolute value of each component in the vector and updates the vector in place.
 func (v *V3F[T]) AbsInPlace() {
 	if v.X < 0 {
 		v.X = -v.X
@@ -55,6 +57,7 @@ func (v *V3F[T]) AbsInPlace() {
 
 // V2I
 
+// Abs computes the absolute value of each component in the vector.
 func (v V2I[T]) Abs() V2I[T] {
 	absX := v.X
 	absY := v.Y
@@ -67,6 +70,7 @@ func (v V2I[T]) Abs() V2I[T] {
 	return V2I[T]{X: absX, Y: absY}
 }
 
+// AbsInPlace computes the absolute value of each component in the vector and updates the vector in place.
 func (v *V2I[T]) AbsInPlace() {
 	if v.X < 0 {
 		v.X = -v.X
@@ -78,6 +82,7 @@ func (v *V2I[T]) AbsInPlace() {
 
 // V3I
 
+// Abs computes the absolute value of each component in the vector.
 func (v V3I[T]) Abs() V3I[T] {
 	absX := v.X
 	absY := v.Y
@@ -94,6 +99,7 @@ func (v V3I[T]) Abs() V3I[T] {
 	return V3I[T]{X: absX, Y: absY, Z: absZ}
 }
 
+// AbsInPlace computes the absolute value of each component in the vector and updates the vector in place.
 func (v *V3I[T]) AbsInPlace() {
 	if v.X < 0 {
 		v.X = -v.X
