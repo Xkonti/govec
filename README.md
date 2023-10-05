@@ -134,89 +134,90 @@ in some cases the return type is different. Examples:
 
 ## Available Operations
 
-| Operation                   | Float | Integer | Description                                                                                                 |
-|-----------------------------|-------|---------|-------------------------------------------------------------------------------------------------------------|
-| **Creation**                |       |         |                                                                                                             |
-| [`...FromArray`](array.go)  | ✔️    | ✔️      | Initializes a vector from an array of components.                                                           |
-| [`...FromSlice`](slice.go)  | ✔️    | ✔️      | Initializes a vector from a slice of components.                                                            |
-| [`Fill`](new.go)            | ✔️    | ✔️      | Creates a vector where all components are set to a specified value.                                         |
-| [`New`](new.go)             | ✔️    | ✔️      | Creates a new vector using the provided components.                                                         |
-| [`One`](new.go)             | ✔️    | ✔️      | Generates a vector with all components set to 1.                                                            |
-| [`Zero`](new.go)            | ✔️    | ✔️      | Generates a vector with all components set to 0.                                                            |
-| **Conversions**             |       |         |                                                                                                             |
-| [`Apply`](apply.go)         | ✔️    | ✔️      | Applies a given function to each component in the vector.                                                   |
-| [`ApplyToArray`](array.go)  | ✔️    | ✔️      | Modifies an array by assigning values from the vector's corresponding components.                           |
-| [`ApplyToSlice`](slice.go)  | ✔️    | ✔️      | Modifies a slice by assigning values from the vector's corresponding components.                            |
-| [`Discard`](discard.go)     | ✔️    | ✔️      | Removes a component from the vector at a specified index.                                                   |
-| [`Extend`](extend.go)       | ✔️    | ✔️      | Extends the dimensionality of a vector by adding additional components.                                     |
-| [`Insert`](insert.go)       | ✔️    | ✔️      | Inserts a value into the vector at a specified index.                                                       |
-| [`Split`](split.go)         | ✔️    | ✔️      | Splits a vector into its individual components.                                                             |
-| [`Swizzle...`](swizzle.go)  | ✔️    | ✔️      | Swaps components of a vector using a selected pattern.                                                      |
-| [`ToArray`](array.go)       | ✔️    | ✔️      | Converts the vector to a new array.                                                                         |
-| [`ToSlice`](slice.go)       | ✔️    | ✔️      | Converts the vector to a new slice.                                                                         |
-| `To...`                     | ✔️    | ✔️      | Transforms the vector into another type. [V2F](vec2f.go), [V3F](vec3f.go), [V2I](vec2i.go), [V3I](vec3i.go) |
-| **Mathematics**             |       |         |                                                                                                             |
-| [`Abs`](abs.go)             | ✔️    | ✔️      | Computes the absolute value of each component in the vector.                                                |
-| [`Add`](add.go)             | ✔️    | ✔️      | Performs vector addition.                                                                                   |
-| [`AddScalar`](addScalar.go) | ✔️    | ✔️      | Adds a scalar value to each component of the vector.                                                        |
-| [`Ceil`](ceil.go)           | ✔️    | ✔️      | Rounds each component of the vector up to the nearest integer.                                              |
-| [`ClampComp`](clampComp.go) | ✔️    | ✔️      | Clamps the components of this vector to the given range.                                                    |
-| [`ClampLen`](clampLen.go)   | ✔️    | ✔️      | Scales the length of the vector so that it fits within provided range.                                      |
-| [`Cross`](cross.go)         | ✔️    | ✔️      | Computes the cross product of two vectors. (Not applicable for 2D vectors.)                                 |
-| [`Div`](div.go)             | ✔️    | ✔️      | Performs vector division.                                                                                   |
-| [`DivScalar`](dicScalar.go) | ✔️    | ✔️      | Divides each component of the vector by a scalar.                                                           |
-| [`Dot`](dot.go)             | ✔️    | ✔️      | Computes the dot product of two vectors.                                                                    |
-| [`Floor`](floor.go)         | ✔️    | ✔️      | Rounds each component of the vector down to the nearest integer.                                            |
-| [`Inv`](inv.go)             | ✔️    | ✔️      | Computes the multiplicative inverse of each component in the vector.                                        |
-| [`Len`](len.go)             | ✔️    | ✔️      | Calculates the length of the vector. Returns `float64` for integer vectors.                                 |
-| [`LenSqrt`](lenSqrt.go)     | ✔️    | ✔️      | Calculates the squared length of the vector. Returns `float64` for integer vectors.                         |
-| [`Max`](max.go)             | ✔️    | ✔️      | Returns the maximum component values from two vectors.                                                      |
-| [`Min`](min.go)             | ✔️    | ✔️      | Returns the minimum component values from two vectors.                                                      |
-| [`Mod`](mod.go)             | ✔️    | ✔️      | Computes the modulus of each component in the vector against another vector components.                     |
-| [`ModScalar`](modScalar.go) | ✔️    | ✔️      | Computes the modulus of each component in the vector against a single scalar.                               |
-| [`Mul`](mul.go)             | ✔️    | ✔️      | Performs vector multiplication.                                                                             |
-| [`MulScalar`](mulScalar.go) | ✔️    | ✔️      | Multiplies each component of the vector by a scalar.                                                        |
-| [`Neg`](neg.go)             | ✔️    | ✔️      | Negates each component of the vector.                                                                       |
-| [`Norm`](norm.go)           | ✔️    | ✔️      | Normalizes the vector. Returns a `float64` vector for integer vectors.                                      |
-| [`Pow`](pow.go)             | ✔️    | ✔️      | Raises each component of the vector to the power of the corresponding component in another vector.          |
-| [`Pow2`](pow2.go)           | ✔️    | ✔️      | Squares each component of the vector.                                                                       |
-| [`Pow3`](pow3.go)           | ✔️    | ✔️      | Cubes each component of the vector.                                                                         |
-| [`PowN`](powN.go)           | ✔️    | ✔️      | Raises each component of the vector to a specified integer power.                                           |
-| [`PowNFloat`](powNFloat.go) | ✔️    | ✔️      | Raises each component of the vector to a specified floating-point power.                                    |
-| [`Round`](round.go)         | ✔️    | ✔️      | Rounds each component of the vector to the nearest integer.                                                 |
-| [`Sqrt`](sqrt.go)           | ✔️    | ✔️      | Computes the square root of each component in the vector.                                                   |
-| [`Sub`](sub.go)             | ✔️    | ✔️      | Performs vector subtraction.                                                                                |
-| [`SubScalar`](subScalar.go) | ✔️    | ✔️      | Subtracts a scalar from each component of the vector.                                                       |
+| Operation                               | Description                                                                                                 |
+|-----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Creation**                            |                                                                                                             |
+| [`...FromArray`](array.go)              | Initializes a vector from an array of components.                                                           |
+| [`...FromSlice`](slice.go)              | Initializes a vector from a slice of components.                                                            |
+| [`Fill`](new.go)                        | Creates a vector where all components are set to a specified value.                                         |
+| [`New`](new.go)                         | Creates a new vector using the provided components.                                                         |
+| [`One`](new.go)                         | Generates a vector with all components set to 1.                                                            |
+| [`Zero`](new.go)                        | Generates a vector with all components set to 0.                                                            |
+| **Conversions**                         |                                                                                                             |
+| [`Apply`](apply.go)                     | Applies a given function to each component in the vector.                                                   |
+| [`ApplyToArray`](array.go)              | Modifies an array by assigning values from the vector's corresponding components.                           |
+| [`ApplyToSlice`](slice.go)              | Modifies a slice by assigning values from the vector's corresponding components.                            |
+| [`Discard`](discard.go)                 | Removes a component from the vector at a specified index.                                                   |
+| [`Extend`](extend.go)                   | Extends the dimensionality of a vector by adding additional components.                                     |
+| [`Insert`](insert.go)                   | Inserts a value into the vector at a specified index.                                                       |
+| [`Split`](split.go)                     | Splits a vector into its individual components.                                                             |
+| [`Swizzle...`](swizzle.go)              | Swaps components of a vector using a selected pattern.                                                      |
+| [`ToArray`](array.go)                   | Converts the vector to a new array.                                                                         |
+| [`ToSlice`](slice.go)                   | Converts the vector to a new slice.                                                                         |
+| `To...`                                 | Transforms the vector into another type. [V2F](vec2f.go), [V3F](vec3f.go), [V2I](vec2i.go), [V3I](vec3i.go) |
+| **Mathematics**                         |                                                                                                             |
+| [`Abs`](abs.go)                         | Computes the absolute value of each component in the vector.                                                |
+| [`Add`](add.go)                         | Performs vector addition.                                                                                   |
+| [`AddScalar`](addScalar.go)             | Adds a scalar value to each component of the vector.                                                        |
+| [`AngleBetweenDeg`](angleBetweenDeg.go) | Calculates the angle between two vectors in degrees.                                                        |
+| [`AngleBetweenRad`](angleBetweenRad.go) | Calculates the angle between two vectors in radians.                                                        |
+| [`Ceil`](ceil.go)                       | Rounds each component of the vector up to the nearest integer.                                              |
+| [`ClampComp`](clampComp.go)             | Clamps the components of this vector to the given range.                                                    |
+| [`ClampLen`](clampLen.go)               | Scales the length of the vector so that it fits within provided range.                                      |
+| [`Cross`](cross.go)                     | Computes the cross product of two vectors. (Not applicable for 2D vectors.)                                 |
+| [`Distance`](distance.go)               | Calculates the distance between two vectors.                                                                |
+| [`Div`](div.go)                         | Performs vector division.                                                                                   |
+| [`DivScalar`](dicScalar.go)             | Divides each component of the vector by a scalar.                                                           |
+| [`Dot`](dot.go)                         | Computes the dot product of two vectors.                                                                    |
+| [`Floor`](floor.go)                     | Rounds each component of the vector down to the nearest integer.                                            |
+| [`Inv`](inv.go)                         | Computes the multiplicative inverse of each component in the vector.                                        |
+| [`IsZero`](isZero.go)                   | Checks if the vector is a zero vector.                                                                      |
+| [`Len`](len.go)                         | Calculates the length of the vector. Returns `float64` for integer vectors.                                 |
+| [`LenSqrt`](lenSqrt.go)                 | Calculates the squared length of the vector. Returns `float64` for integer vectors.                         |
+| [`Max`](max.go)                         | Returns the maximum component values from two vectors.                                                      |
+| [`Min`](min.go)                         | Returns the minimum component values from two vectors.                                                      |
+| [`Mod`](mod.go)                         | Computes the modulus of each component in the vector against another vector components.                     |
+| [`ModScalar`](modScalar.go)             | Computes the modulus of each component in the vector against a single scalar.                               |
+| [`Mul`](mul.go)                         | Performs vector multiplication.                                                                             |
+| [`MulScalar`](mulScalar.go)             | Multiplies each component of the vector by a scalar.                                                        |
+| [`Neg`](neg.go)                         | Negates each component of the vector.                                                                       |
+| [`Norm`](norm.go)                       | Normalizes the vector. Returns a `float64` vector for integer vectors.                                      |
+| [`Pow`](pow.go)                         | Raises each component of the vector to the power of the corresponding component in another vector.          |
+| [`Pow2`](pow2.go)                       | Squares each component of the vector.                                                                       |
+| [`Pow3`](pow3.go)                       | Cubes each component of the vector.                                                                         |
+| [`PowN`](powN.go)                       | Raises each component of the vector to a specified integer power.                                           |
+| [`PowNFloat`](powNFloat.go)             | Raises each component of the vector to a specified floating-point power.                                    |
+| [`Round`](round.go)                     | Rounds each component of the vector to the nearest integer.                                                 |
+| [`Sqrt`](sqrt.go)                       | Computes the square root of each component in the vector.                                                   |
+| [`Sub`](sub.go)                         | Performs vector subtraction.                                                                                |
+| [`SubScalar`](subScalar.go)             | Subtracts a scalar from each component of the vector.                                                       |
 
 ## Not implemented yet
 
 The following list of operations are not implemented yet. Feel free to open an issue if you would like to see
 any of these implemented or if you'd like to propose a different operation.
 
-| Operation         | Planned    | Description                                                                       |
-|-------------------|------------|-----------------------------------------------------------------------------------|
-| `AngleBetweenDeg` | Yes (v1.0) | Calculates the angle between two vectors in degrees.                              |
-| `AngleBetweenRad` | Yes (v1.0) | Calculates the angle between two vectors in radians.                              |
-| `AngleDeg`        | Yes (v1.0) | Creates a normalized vector from an angle in degrees.                             |
-| `AngleRad`        | Yes (v1.0) | Creates a normalized vector from an angle in radians.                             |
-| `Average`         | Yes (v1.0) | Calculates the average of the vector's components.                                |
-| `Cos`             |            | Applies the cosine function to all components.                                    |
-| `Distance`        | Yes (v1.0) | Calculates the distance between two vectors.                                      |
-| `FromQuaternion`  |            | Initializes the vector from a quaternion.                                         |
-| `Hash`            |            | Produces a hash code for the vector for use in data structures.                   |
-| `IsOrthogonalTo`  |            | Checks if the vector is orthogonal to another vector.                             |
-| `IsUnit`          |            | Checks if the vector is a unit vector.                                            |
-| `IsZero`          | Yes (v1.0) | Checks if the vector is a zero vector.                                            |
-| `Lerp`            | Yes (v1.0) | Linearly interpolates between two vectors.                                        |
-| `Orthogonalize`   |            | Generates an orthogonal (or orthonormal) vector set.                              |
-| `Project`         |            | Projects a 3D vector onto a plane.                                                |
-| `Rand`            | Yes (v1.0) | Generates a normal vector with random components.                                 |
-| `RandIn`          | Yes (v1.0) | Generates a vector with random components within a zero and the specified vector. |
-| `RandBetween`     | Yes (v1.0) | Generates a vector with random components between two specified vectors.          |
-| `Reflect`         |            | Reflects a vector off the plane defined by a normal.                              |
-| `RotateDeg`       | Yes (v1.0) | Rotates a vector by an angle in degrees.                                          |
-| `RotateRad`       | Yes (v1.0) | Rotates a vector by an angle in radians.                                          |
-| `Sin`             |            | Applies the sine function to all components.                                      |
-| `Slerp`           |            | Spherically interpolates between two vectors.                                     |
-| `Tan`             |            | Applies the tangent function to all components.                                   |
-| `ToQuaternion`    |            | Converts the vector to a quaternion.                                              |
+| Operation        | Planned    | Description                                                                       |
+|------------------|------------|-----------------------------------------------------------------------------------|
+| `AngleDeg`       | Yes (v1.0) | Creates a normalized vector from an angle in degrees.                             |
+| `AngleRad`       | Yes (v1.0) | Creates a normalized vector from an angle in radians.                             |
+| `Average`        | Yes (v1.0) | Calculates the average of the vector's components.                                |
+| `Cos`            |            | Applies the cosine function to all components.                                    |
+| `FromQuaternion` |            | Initializes the vector from a quaternion.                                         |
+| `Hash`           |            | Produces a hash code for the vector for use in data structures.                   |
+| `IsOrthogonalTo` |            | Checks if the vector is orthogonal to another vector.                             |
+| `IsUnit`         |            | Checks if the vector is a unit vector.                                            |
+| `Lerp`           | Yes (v1.0) | Linearly interpolates between two vectors.                                        |
+| `Orthogonalize`  |            | Generates an orthogonal (or orthonormal) vector set.                              |
+| `Project`        |            | Projects a 3D vector onto a plane.                                                |
+| `Rand`           | Yes (v1.0) | Generates a normal vector with random components.                                 |
+| `RandIn`         | Yes (v1.0) | Generates a vector with random components within a zero and the specified vector. |
+| `RandBetween`    | Yes (v1.0) | Generates a vector with random components between two specified vectors.          |
+| `Reflect`        |            | Reflects a vector off the plane defined by a normal.                              |
+| `Remainder`      |            | Computes the remainder of each component in the vector against another vector.    |
+| `RotateDeg`      | Yes (v1.0) | Rotates a vector by an angle in degrees.                                          |
+| `RotateRad`      | Yes (v1.0) | Rotates a vector by an angle in radians.                                          |
+| `Sin`            |            | Applies the sine function to all components.                                      |
+| `Slerp`          |            | Spherically interpolates between two vectors.                                     |
+| `Tan`            |            | Applies the tangent function to all components.                                   |
+| `ToQuaternion`   |            | Converts the vector to a quaternion.                                              |
