@@ -89,7 +89,7 @@ func TestV3F_AbsInPlace(t *testing.T) {
 		vector.AbsInPlace()
 		expectedAbsV := expectedAbsInPlaceResult[idx]
 		if vector.X != expectedAbsV.X || vector.Y != expectedAbsV.Y || vector.Z != expectedAbsV.Z {
-			t.Errorf("%#v.Abs() incorrect. expected: %#v, got: %#v", vector, expectedAbsV, vector)
+			t.Errorf("%#v.AbsInPlace() incorrect. expected: %#v, got: %#v", vector, expectedAbsV, vector)
 		}
 	}
 }
