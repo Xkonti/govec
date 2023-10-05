@@ -214,7 +214,6 @@ any of these implemented or if you'd like to propose a different operation.
 | `RandIn`         | Yes (v1.0) | Generates a vector with random components within a zero and the specified vector. |
 | `RandBetween`    | Yes (v1.0) | Generates a vector with random components between two specified vectors.          |
 | `Reflect`        |            | Reflects a vector off the plane defined by a normal.                              |
-| `Remainder`      |            | Computes the remainder of each component in the vector against another vector.    |
 | `RotateDeg`      | Yes (v1.0) | Rotates a vector by an angle in degrees.                                          |
 | `RotateRad`      | Yes (v1.0) | Rotates a vector by an angle in radians.                                          |
 | `Sin`            |            | Applies the sine function to all components.                                      |
