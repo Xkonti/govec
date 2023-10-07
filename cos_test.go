@@ -55,6 +55,6 @@ func TestV3I_Cos(t *testing.T) {
 	v2 := v1.Cos()
 
 	if v2.X != 0 || v2.Y != 0.8414709848078965 || v2.Z != 0.1411200080598672 {
-		t.Errorf("V3F Cos failed")
+		t.Errorf("V3I Cos failed")
 	}
 }
