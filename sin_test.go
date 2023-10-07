@@ -46,7 +46,7 @@ func TestV2I_Sin(t *testing.T) {
 	v2 := v1.Sin()
 
 	if v2.X != 0 || v2.Y != 0.8414709848078965 {
-		t.Errorf("V2F Sin failed")
+		t.Errorf("V2I Sin failed")
 	}
 }
 
@@ -55,6 +55,6 @@ func TestV3I_Sin(t *testing.T) {
 	v2 := v1.Sin()
 
 	if v2.X != 0 || v2.Y != 0.8414709848078965 || v2.Z != 0.1411200080598672 {
-		t.Errorf("V3F Sin failed")
+		t.Errorf("V3I Sin failed")
 	}
 }
