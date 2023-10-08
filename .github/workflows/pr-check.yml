@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-
+      
 jobs:
   check-pr:
     runs-on: ubuntu-latest
@@ -22,7 +22,21 @@ jobs:
     - name: Building
       run: go build ./...
     - name: Test
-      run: go test ./... -run=Test$
+      run: go test ./...
+
+    - name: Comment on PR
+      if: failure()
+      uses: actions/github-script@v5
+      with:
+        github-token: ${{ secrets.PR_TOKEN }}
+        script: |
+          const body = "Tests have failed. Please check the test results.";
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: body
+          });
 
     - name: Prevent Merging on Failure
       if: failure()
