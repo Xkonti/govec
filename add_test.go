@@ -4,7 +4,7 @@ import "testing"
 
 // Test V2F Add
 func TestV2F_Add(t *testing.T) {
-	v1 := V2F[float64]{X: 1.1, Y: 2.4}
+	v1 := V2F[float64]{X: 1.3, Y: 2.4}
 	v2 := V2F[float64]{X: 3.5, Y: 4.6}
 	v3 := v1.Add(v2)
 	if v3.X != 4.8 || v3.Y != 7.0 {
