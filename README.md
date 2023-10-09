@@ -161,9 +161,13 @@ in some cases the return type is different. Examples:
 | [`AddScalar`](addScalar.go)             | Adds a scalar value to each component of the vector.                                                        |
 | [`AngleBetweenDeg`](angleBetweenDeg.go) | Calculates the angle between two vectors in degrees.                                                        |
 | [`AngleBetweenRad`](angleBetweenRad.go) | Calculates the angle between two vectors in radians.                                                        |
+| [`AngleDeg`](angleDeg.go)               | Creates a normalized vector from an angle in degrees.                                                       |
+| [`AngleRad`](angleRad.go)               | Creates a normalized vector from an angle in radians.                                                       |
+| [`Average`](average.go)                 | Calculates the average of the vector's components.                                                          |
 | [`Ceil`](ceil.go)                       | Rounds each component of the vector up to the nearest integer.                                              |
 | [`ClampComp`](clampComp.go)             | Clamps the components of this vector to the given range.                                                    |
 | [`ClampLen`](clampLen.go)               | Scales the length of the vector so that it fits within provided range.                                      |
+| [`Cos`](cos.go)                         | Applies the cosine function to all components.                                                              |
 | [`Cross`](cross.go)                     | Computes the cross product of two vectors. (Not applicable for 2D vectors.)                                 |
 | [`Distance`](distance.go)               | Calculates the distance between two vectors.                                                                |
 | [`Div`](div.go)                         | Performs vector division.                                                                                   |
@@ -188,9 +192,11 @@ in some cases the return type is different. Examples:
 | [`PowN`](powN.go)                       | Raises each component of the vector to a specified integer power.                                           |
 | [`PowNFloat`](powNFloat.go)             | Raises each component of the vector to a specified floating-point power.                                    |
 | [`Round`](round.go)                     | Rounds each component of the vector to the nearest integer.                                                 |
+| [`Sin`](sin.go)                         | Applies the sine function to all components.                                                                |
 | [`Sqrt`](sqrt.go)                       | Computes the square root of each component in the vector.                                                   |
 | [`Sub`](sub.go)                         | Performs vector subtraction.                                                                                |
 | [`SubScalar`](subScalar.go)             | Subtracts a scalar from each component of the vector.                                                       |
+| [`Tan`](subScalar.go)                   | Applies the tangent function to all components.                                                             |
 
 ## Not implemented yet
 
@@ -199,10 +205,6 @@ any of these implemented or if you'd like to propose a different operation.
 
 | Operation        | Planned    | Description                                                                       |
 |------------------|------------|-----------------------------------------------------------------------------------|
-| `AngleDeg`       | Yes (v1.0) | Creates a normalized vector from an angle in degrees.                             |
-| `AngleRad`       | Yes (v1.0) | Creates a normalized vector from an angle in radians.                             |
-| `Average`        | Yes (v1.0) | Calculates the average of the vector's components.                                |
-| `Cos`            |            | Applies the cosine function to all components.                                    |
 | `FromQuaternion` |            | Initializes the vector from a quaternion.                                         |
 | `Hash`           |            | Produces a hash code for the vector for use in data structures.                   |
 | `IsOrthogonalTo` |            | Checks if the vector is orthogonal to another vector.                             |
@@ -216,7 +218,5 @@ any of these implemented or if you'd like to propose a different operation.
 | `Reflect`        |            | Reflects a vector off the plane defined by a normal.                              |
 | `RotateDeg`      | Yes (v1.0) | Rotates a vector by an angle in degrees.                                          |
 | `RotateRad`      | Yes (v1.0) | Rotates a vector by an angle in radians.                                          |
-| `Sin`            |            | Applies the sine function to all components.                                      |
 | `Slerp`          |            | Spherically interpolates between two vectors.                                     |
-| `Tan`            |            | Applies the tangent function to all components.                                   |
 | `ToQuaternion`   |            | Converts the vector to a quaternion.                                              |
