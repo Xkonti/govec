@@ -110,20 +110,20 @@ func TestV3F_RotateDeg(t *testing.T) {
 	tt := []struct {
 		name     string
 		degrees  float64
-		axis     string
+		axis     axis
 		expected expected
 	}{
-		{name: "z0", axis: "z", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "z90", degrees: 90, axis: "z", expected: expected{X: -1, Y: 0, Z: 0}},
-		{name: "z180", degrees: 180, axis: "z", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "z0", axis: zAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "z90", degrees: 90, axis: zAxis, expected: expected{X: -1, Y: 0, Z: 0}},
+		{name: "z180", degrees: 180, axis: zAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 
-		{name: "y0", axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "y90", degrees: 90, axis: "y", expected: expected{X: -1, Y: 1, Z: 0}},
-		{name: "y180", degrees: 180, axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y0", axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y90", degrees: 90, axis: yAxis, expected: expected{X: -1, Y: 1, Z: 0}},
+		{name: "y180", degrees: 180, axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
 
-		{name: "x0", axis: "x", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "x90", degrees: 90, axis: "x", expected: expected{X: 0, Y: 0, Z: 0}},
-		{name: "x180", degrees: 180, axis: "x", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "x0", axis: xAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "x90", degrees: 90, axis: xAxis, expected: expected{X: 0, Y: 0, Z: 0}},
+		{name: "x180", degrees: 180, axis: xAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 	}
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
@@ -155,20 +155,20 @@ func TestV3I_RotateDeg(t *testing.T) {
 	tt := []struct {
 		name     string
 		degrees  float64
-		axis     string
+		axis     axis
 		expected expected
 	}{
-		{name: "z0", axis: "z", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "z90", degrees: 90, axis: "z", expected: expected{X: -1, Y: 0, Z: 0}},
-		{name: "z180", degrees: 180, axis: "z", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "z0", axis: zAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "z90", degrees: 90, axis: zAxis, expected: expected{X: -1, Y: 0, Z: 0}},
+		{name: "z180", degrees: 180, axis: zAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 
-		{name: "y0", axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "y90", degrees: 90, axis: "y", expected: expected{X: -1, Y: 1, Z: 0}},
-		{name: "y180", degrees: 180, axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y0", axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y90", degrees: 90, axis: yAxis, expected: expected{X: -1, Y: 1, Z: 0}},
+		{name: "y180", degrees: 180, axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
 
-		{name: "x0", axis: "x", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "x90", degrees: 90, axis: "x", expected: expected{X: 0, Y: 0, Z: 0}},
-		{name: "x180", degrees: 180, axis: "x", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "x0", axis: xAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "x90", degrees: 90, axis: xAxis, expected: expected{X: 0, Y: 0, Z: 0}},
+		{name: "x180", degrees: 180, axis: xAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 	}
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {
@@ -200,20 +200,20 @@ func TestV3F_RotateDegInPlace(t *testing.T) {
 	tt := []struct {
 		name     string
 		degrees  float64
-		axis     string
+		axis     axis
 		expected expected
 	}{
-		{name: "z0", axis: "z", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "z90", degrees: 90, axis: "z", expected: expected{X: -1, Y: 0, Z: 0}},
-		{name: "z180", degrees: 180, axis: "z", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "z0", axis: zAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "z90", degrees: 90, axis: zAxis, expected: expected{X: -1, Y: 0, Z: 0}},
+		{name: "z180", degrees: 180, axis: zAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 
-		{name: "y0", axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "y90", degrees: 90, axis: "y", expected: expected{X: -1, Y: 1, Z: 0}},
-		{name: "y180", degrees: 180, axis: "y", expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y0", axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "y90", degrees: 90, axis: yAxis, expected: expected{X: -1, Y: 1, Z: 0}},
+		{name: "y180", degrees: 180, axis: yAxis, expected: expected{X: 0, Y: 1, Z: 0}},
 
-		{name: "x0", axis: "x", expected: expected{X: 0, Y: 1, Z: 0}},
-		{name: "x90", degrees: 90, axis: "x", expected: expected{X: 0, Y: 0, Z: 0}},
-		{name: "x180", degrees: 180, axis: "x", expected: expected{X: 0, Y: -1, Z: 0}},
+		{name: "x0", axis: xAxis, expected: expected{X: 0, Y: 1, Z: 0}},
+		{name: "x90", degrees: 90, axis: xAxis, expected: expected{X: 0, Y: 0, Z: 0}},
+		{name: "x180", degrees: 180, axis: xAxis, expected: expected{X: 0, Y: -1, Z: 0}},
 	}
 	for _, tc := range tt {
 		t.Run(tc.name, func(t *testing.T) {

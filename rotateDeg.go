@@ -2,8 +2,11 @@ package govec
 
 import "math"
 
+// V2F
+
+// RotateDeg rotates the vector counterclockwise by the specified number of degrees and returns a new vector.
 func (v V2F[T]) RotateDeg(degrees float64) V2F[T] {
-	d := degrees * (math.Pi / 180)
+	d := degrees * degToRadFactor
 
 	return V2F[T]{
 		X: T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y)),
@@ -11,8 +14,22 @@ func (v V2F[T]) RotateDeg(degrees float64) V2F[T] {
 	}
 }
 
+// RotateDegInPlace modifies v by rotating the vector counterclockwise by the specified number of degrees.
+func (v *V2F[T]) RotateDegInPlace(degrees float64) {
+	d := degrees * degToRadFactor
+
+	x1 := T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y))
+	y1 := T(math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y))
+
+	v.X = x1
+	v.Y = y1
+}
+
+// V2I
+
+// RotateDeg rotates the vector counterclockwise by the specified number of degrees and returns a new V2F vector.
 func (v V2I[T]) RotateDeg(degrees float64) V2F[float64] {
-	d := degrees * (math.Pi / 180)
+	d := degrees * degToRadFactor
 
 	t := V2F[float64]{
 		X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
@@ -22,27 +39,20 @@ func (v V2I[T]) RotateDeg(degrees float64) V2F[float64] {
 	return t
 }
 
-func (v *V2F[T]) RotateDegInPlace(degrees float64) {
-	d := degrees * (math.Pi / 180)
+// V3F
 
-	x1 := T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y))
-	y1 := T(math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y))
-
-	v.X = x1
-	v.Y = y1
-}
-
-func (v V3F[T]) RotateDeg(degrees float64, axis string) V3F[T] {
-	d := degrees * (math.Pi / 180)
+// RotateDeg rotates the vector counterclockwise by the specified number of degrees, around axis and returns a new vector.
+func (v V3F[T]) RotateDeg(degrees float64, axis axis) V3F[T] {
+	d := degrees * degToRadFactor
 
 	switch axis {
-	case "z":
+	case zAxis:
 		return V3F[T]{
 			X: T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y)),
 			Y: T(math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y)),
 			Z: v.Z,
 		}
-	case "y":
+	case yAxis:
 		return V3F[T]{
 			X: T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y)),
 			Y: v.Y,
@@ -57,17 +67,20 @@ func (v V3F[T]) RotateDeg(degrees float64, axis string) V3F[T] {
 	}
 }
 
-func (v V3I[T]) RotateDeg(degrees float64, axis string) V3F[float64] {
-	d := degrees * (math.Pi / 180)
+// V3I
+
+// RotateDeg rotates the vector counterclockwise by the specified number of degrees, around axis and returns a new V3F vector.
+func (v V3I[T]) RotateDeg(degrees float64, axis axis) V3F[float64] {
+	d := degrees * degToRadFactor
 
 	switch axis {
-	case "z":
+	case zAxis:
 		return V3F[float64]{
 			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
 			Y: math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y),
 			Z: float64(v.Z),
 		}
-	case "y":
+	case yAxis:
 		return V3F[float64]{
 			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
 			Y: float64(v.Y),
@@ -82,11 +95,12 @@ func (v V3I[T]) RotateDeg(degrees float64, axis string) V3F[float64] {
 	}
 }
 
-func (v *V3F[T]) RotateDegInPlace(degrees float64, axis string) {
-	d := degrees * (math.Pi / 180)
+// RotateDegInPlace modifies v by rotating the vector counterclockwise by the specified number of degrees, around axis.
+func (v *V3F[T]) RotateDegInPlace(degrees float64, axis axis) {
+	d := degrees * degToRadFactor
 
 	switch axis {
-	case "z":
+	case zAxis:
 		x := T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y))
 		y := T(math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y))
 		z := T(float64(v.Z))
@@ -94,7 +108,7 @@ func (v *V3F[T]) RotateDegInPlace(degrees float64, axis string) {
 		v.X = x
 		v.Y = y
 		v.Z = z
-	case "y":
+	case yAxis:
 		x := T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y))
 		y := T(float64(v.Y))
 		z := T(-math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Z))
