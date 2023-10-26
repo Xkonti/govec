@@ -67,34 +67,6 @@ func (v V3F[T]) RotateDeg(degrees float64, axis axis) V3F[T] {
 	}
 }
 
-// V3I
-
-// RotateDeg rotates the vector counterclockwise by the specified number of degrees, around axis and returns a new V3F vector.
-func (v V3I[T]) RotateDeg(degrees float64, axis axis) V3F[float64] {
-	d := degrees * degToRadFactor
-
-	switch axis {
-	case zAxis:
-		return V3F[float64]{
-			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
-			Y: math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y),
-			Z: float64(v.Z),
-		}
-	case yAxis:
-		return V3F[float64]{
-			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
-			Y: float64(v.Y),
-			Z: -math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Z),
-		}
-	default:
-		return V3F[float64]{
-			X: float64(v.X),
-			Y: math.Cos(d)*float64(v.Y) - math.Sin(d)*float64(v.Z),
-			Z: -math.Sin(d)*float64(v.Z) + math.Cos(d)*float64(v.Z),
-		}
-	}
-}
-
 // RotateDegInPlace modifies v by rotating the vector counterclockwise by the specified number of degrees, around axis.
 func (v *V3F[T]) RotateDegInPlace(degrees float64, axis axis) {
 	d := degrees * degToRadFactor
@@ -124,5 +96,33 @@ func (v *V3F[T]) RotateDegInPlace(degrees float64, axis axis) {
 		v.X = x
 		v.Y = y
 		v.Z = z
+	}
+}
+
+// V3I
+
+// RotateDeg rotates the vector counterclockwise by the specified number of degrees, around axis and returns a new V3F vector.
+func (v V3I[T]) RotateDeg(degrees float64, axis axis) V3F[float64] {
+	d := degrees * degToRadFactor
+
+	switch axis {
+	case zAxis:
+		return V3F[float64]{
+			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
+			Y: math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y),
+			Z: float64(v.Z),
+		}
+	case yAxis:
+		return V3F[float64]{
+			X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
+			Y: float64(v.Y),
+			Z: -math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Z),
+		}
+	default:
+		return V3F[float64]{
+			X: float64(v.X),
+			Y: math.Cos(d)*float64(v.Y) - math.Sin(d)*float64(v.Z),
+			Z: -math.Sin(d)*float64(v.Z) + math.Cos(d)*float64(v.Z),
+		}
 	}
 }
