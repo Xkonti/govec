@@ -191,6 +191,9 @@ in some cases the return type is different. Examples:
 | [`Pow3`](pow3.go)                       | Cubes each component of the vector.                                                                         |
 | [`PowN`](powN.go)                       | Raises each component of the vector to a specified integer power.                                           |
 | [`PowNFloat`](powNFloat.go)             | Raises each component of the vector to a specified floating-point power.                                    |
+| [`Rand`](rand.go)                       | Generates a normal vector with random components.                                                           |
+| [`RandBetween`](randBetween.go)         | Generates a vector with random components between two specified vectors.                                    |
+| [`RandIn`](randIn.go)                   | Generates a vector with random components within a zero and the specified vector.                           |
 | [`Round`](round.go)                     | Rounds each component of the vector to the nearest integer.                                                 |
 | [`Sin`](sin.go)                         | Applies the sine function to all components.                                                                |
 | [`Sqrt`](sqrt.go)                       | Computes the square root of each component in the vector.                                                   |
@@ -212,9 +215,9 @@ any of these implemented or if you'd like to propose a different operation.
 | `Lerp`           | Yes (v1.0) | Linearly interpolates between two vectors.                                        |
 | `Orthogonalize`  |            | Generates an orthogonal (or orthonormal) vector set.                              |
 | `Project`        |            | Projects a 3D vector onto a plane.                                                |
-| `Rand`           | Yes (v1.0) | Generates a normal vector with random components.                                 |
-| `RandIn`         | Yes (v1.0) | Generates a vector with random components within a zero and the specified vector. |
-| `RandBetween`    | Yes (v1.0) | Generates a vector with random components between two specified vectors.          |
+| [`Rand`](rand.go)           | Implemented | Generates a normal vector with random components.                                 |
+| [`RandIn`](randIn.go)         | Implemented | Generates a vector with random components within a zero and the specified vector. |
+| [`RandBetween`](randBetween.go)    | Implemented | Generates a vector with random components between two specified vectors.          |
 | `Reflect`        |            | Reflects a vector off the plane defined by a normal.                              |
 | `RotateDeg`      | Yes (v1.0) | Rotates a vector by an angle in degrees.                                          |
 | `RotateRad`      | Yes (v1.0) | Rotates a vector by an angle in radians.                                          |
