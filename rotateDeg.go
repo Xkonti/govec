@@ -6,12 +6,7 @@ import "math"
 
 // RotateDeg rotates the vector counterclockwise by the specified number of degrees and returns a new vector.
 func (v V2F[T]) RotateDeg(degrees float64) V2F[T] {
-	d := degrees * degToRadFactor
-
-	return V2F[T]{
-		X: T(math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y)),
-		Y: T(math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y)),
-	}
+	return v.RotateRad(degrees * degToRadFactor)
 }
 
 // RotateDegInPlace modifies v by rotating the vector counterclockwise by the specified number of degrees.
@@ -29,14 +24,7 @@ func (v *V2F[T]) RotateDegInPlace(degrees float64) {
 
 // RotateDeg rotates the vector counterclockwise by the specified number of degrees and returns a new V2F vector.
 func (v V2I[T]) RotateDeg(degrees float64) V2F[float64] {
-	d := degrees * degToRadFactor
-
-	t := V2F[float64]{
-		X: math.Cos(d)*float64(v.X) - math.Sin(d)*float64(v.Y),
-		Y: math.Sin(d)*float64(v.X) + math.Cos(d)*float64(v.Y),
-	}
-
-	return t
+	return v.RotateRad(degrees * degToRadFactor)
 }
 
 // V3F
